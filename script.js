@@ -173,4 +173,61 @@ function HibaKereses(neve, zona, fogyasztas){
     return true;
 }
 
+var adminNev = "admin";
+var adminJelszo = "Admin123";
+
+var form = document.getElementById("bejelentkezesForm");
+var nevMezo = document.getElementById("felhasznalonev");
+var jelszoMezo = document.getElementById("jelszo");
+var hiba = document.getElementById("bejelentkezesHiba");
+
+var modalElem = document.getElementById("bejelentkezesModal");
+var modal = new bootstrap.Modal(modalElem);
+
+var profilGomb = document.querySelector(".profilGomb");
+
+var bejelentkezve = false;
+
+form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    var nev = nevMezo.value.trim();
+    var jelszo = jelszoMezo.value;
+
+    if (nev == adminNev && jelszo == adminJelszo) {
+
+        bejelentkezve = true;
+
+        hiba.textContent = "";
+
+        modal.hide();
+
+        profilGomb.innerHTML = '<i class="bi bi-person-check-fill text-dark"></i>';
+        profilGomb.title = "Admin bejelentkezve";
+
+        form.reset();
+
+    } else {
+
+        hiba.textContent = "Hibás felhasználónév vagy jelszó!";
+
+        jelszoMezo.value = "";
+        jelszoMezo.focus();
+
+    }
+
+});
+
+modalElem.addEventListener("hidden.bs.modal", function () {
+
+    if (bejelentkezve == false) {
+
+        form.reset();
+        hiba.textContent = "";
+
+    }
+
+});
+
 kiir();
