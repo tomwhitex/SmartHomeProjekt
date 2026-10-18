@@ -12,7 +12,22 @@
 
 <body class="py-5 text-white">
     <header>
-        <h1 class="text-center"><img src="kepek/nestly-ikon.png" alt="SmartHome_rendszer_logo"> SmartHome rendszer</h1>
+        <div class="container position-relative">
+        <h1 class="text-center">
+            <img src="kepek/nestly-ikon.png" alt="SmartHome_rendszer_logo">
+            SmartHome rendszer
+        </h1>
+
+        <button type="button" class="profilGomb"
+            data-bs-toggle="modal"
+            data-bs-target="#bejelentkezesModal"
+            title="Bejelentkezés">
+            <i class="bi bi-person-fill text-dark"></i>
+
+        </button>
+    </div>
+
+        
     </header>
     <main>
         <section class="container py-5">
@@ -205,7 +220,55 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="bejelentkezesModal" tabindex="-1"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+           <div class="modal-header bg-primary text-white">
+    <h5 class="modal-title">Bejelentkezés</h5>
+
+    <button type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="modal"
+        aria-label="Bezárás">
+    </button>
+</div>
+
+
+            <div class="modal-body text-dark">
+
+                <form id="bejelentkezesForm">
+
+                    <div class="mb-3">
+                        <label class="form-label">Felhasználónév:</label>
+                        <input type="text" class="form-control"
+                            id="felhasznalonev" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Jelszó:</label>
+                        <input type="password" class="form-control"
+                            id="jelszo" required>
+                    </div>
+
+                    <p id="bejelentkezesHiba" class="text-danger"></p>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Bejelentkezés
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+    
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/Profil.js"></script>
+    <script src="js/ProfilEgysegteszt.js"></script>
     <script src="js/Eszkoz.js"></script>
     <script src="js/script.js"></script>
     <script src="js/egysegteszt.js"></script>
