@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="kepek/nestly-ikon.png">
+    <title>SmartHome Eszközkezelő és Zóna Menedzser</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="py-5 text-white">
+    <header>
+        <h1 class="text-center"><img src="kepek/nestly-ikon.png" alt="SmartHome_rendszer_logo"> SmartHome rendszer</h1>
+    </header>
+    <main>
+        <section class="container py-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Eszközök
+                        listája</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane"
+                        aria-selected="false">Hozzáadás</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                        type="button" role="tab" aria-controls="contact-tab-pane"
+                        aria-selected="false">Szerkesztés</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active p-4" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+                    <p>Összfogyasztás: <span class="osszfogyasztas">0 W</span></p>
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-6">
+                            <input type="search" class="form-control kereso" placeholder="Keresés név alapján">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <select class="form-select zonaszuro" aria-label="Zóna szűrő">
+                                <option selected value="">Minden zóna</option>
+                                <option value="Nappali">Nappali</option>
+                                <option value="Hálószoba">Hálószoba</option>
+                                <option value="Konyha">Konyha</option>
+                                <option value="Fürdőszoba">Fürdőszoba</option>
+                                <option value="Előszoba">Előszoba</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Név</th>
+                                    <th scope="col">Típus</th>
+                                    <th scope="col">Zóna</th>
+                                    <th scope="col">Fogyasztás</th>
+                                    <th scope="col">Állapot</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade p-4" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Név:</label>
+                            <input type="text" class="form-control neve">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Típus:</label>
+                            <select class="form-select tipus">
+                                <option value="Okosizzó">Okosizzó</option>
+                                <option value="Termosztát">Termosztát</option>
+                                <option value="Biztonsági kamera">Biztonsági kamera</option>
+                                <option value="Okoskonnektor">Okoskonnektor</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Zóna:</label>
+                            <select class="form-select zona">
+                                <option selected value="">Válasszon!</option>
+                                <option value="Nappali">Nappali</option>
+                                <option value="Hálószoba">Hálószoba</option>
+                                <option value="Konyha">Konyha</option>
+                                <option value="Fürdőszoba">Fürdőszoba</option>
+                                <option value="Előszoba">Előszoba</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fogyasztás (W):</label>
+                            <input type="number" min="0" class="form-control fogyasztas">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input allapot" id="allapot">
+                            <label class="form-check-label" for="allapot">Bekapcsolva</label>
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-success hozzaad">Hozzáad</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade p-4" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                    tabindex="0">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Név:</label>
+                            <input type="text" class="form-control ujneve">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Típus:</label>
+                            <select class="form-select ujtipus">
+                                <option value="Okosizzó">Okosizzó</option>
+                                <option value="Termosztát">Termosztát</option>
+                                <option value="Biztonsági kamera">Biztonsági kamera</option>
+                                <option value="Okoskonnektor">Okoskonnektor</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Zóna:</label>
+                            <select class="form-select ujzona">
+                                <option selected value="">Válasszon!</option>
+                                <option value="Nappali">Nappali</option>
+                                <option value="Hálószoba">Hálószoba</option>
+                                <option value="Konyha">Konyha</option>
+                                <option value="Fürdőszoba">Fürdőszoba</option>
+                                <option value="Előszoba">Előszoba</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fogyasztás (W):</label>
+                            <input type="number" min="0" class="form-control ujfogyasztas">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input ujallapot" id="ujallapot">
+                            <label class="form-check-label" for="ujallapot">Bekapcsolva</label>
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-success frissit">Frissít</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="text-center">Minden jog fenntartva!</p>
+    </footer>
+    <div class="modal" tabindex="-1" id="hibaModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Hibás adatok</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Bezár"></button>
+            </div>
+            <div class="modal-body text-dark">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title fs-5" id="exampleModalLabel">Megerősítés</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark">
+                    <p>Biztosan törli ezt az eszközt?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="button" class="btn btn-danger torles" data-bs-dismiss="modal">Törlés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" id="sikeresModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Sikeres hozzáadás</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-dark">
+                    <p>Az eszköz hozzáadása sikeresen megtörtént.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/Eszkoz.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/egysegteszt.js"></script>
+</body>
+
+</html>
